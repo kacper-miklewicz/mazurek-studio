@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between px-8 py-5">
+    <header className="flex justify-between px-8 py-5 bg-base">
       <Link to="/" className="z-10" onClick={() => setIsMenuOpen(false)}>
         mazurek studio
       </Link>

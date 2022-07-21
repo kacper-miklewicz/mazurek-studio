@@ -4,7 +4,6 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
-import { useEffect, useState } from "react";
 import Offer from "./pages/Offer";
 
 function App() {

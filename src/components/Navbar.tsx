@@ -9,14 +9,12 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ open, setIsMenuOpen }) => {
   return (
     <nav
-      className={`absolute top-0 left-0 flex w-full h-screen transition-all  ${
-        open ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`absolute top-0 right-0 items-center w-full h-screen bg-dark ${
+        open ? "flex" : "hidden"
+      } md:w-1/3 l:w-1/4`}
+      onClick={() => setIsMenuOpen(false)}
     >
-      <ul
-        onClick={() => setIsMenuOpen(false)}
-        className="w-full bg-white pt-20"
-      >
+      <ul className="w-full">
         <li>
           <NavLink
             to="o-mnie"
