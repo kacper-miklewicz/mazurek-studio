@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { NavLink } from "react-router-dom";
+import MenuLink from "./MenuLink";
 
 interface NavbarProps {
   open: boolean;
@@ -15,44 +15,13 @@ const Navbar: React.FC<NavbarProps> = ({ open, setIsMenuOpen }) => {
       onClick={() => setIsMenuOpen(false)}
     >
       <ul className="w-full">
-        <li>
-          <NavLink
-            to="o-mnie"
-            className="block w-full text-center text-2xl leading-[2.5]"
-          >
-            O mnie
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="projekty"
-            className="block w-full text-center text-2xl leading-[2.5]"
-          >
-            Projekty
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="oferta"
-            className="block w-full text-center text-2xl leading-[2.5]"
-          >
-            Oferta
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="kontakt"
-            className="block w-full text-center text-2xl leading-[2.5]"
-          >
-            Kontakt
-          </NavLink>
-        </li>
+        <MenuLink pageLink="o-mnie" text="O mnie" />
+        <MenuLink pageLink="projekty" text="Projekty" />
+        <MenuLink pageLink="oferta" text="Oferta" />
+        <MenuLink pageLink="kontakt" text="Kontakt" />
       </ul>
     </nav>
   );
 };
 
 export default Navbar;
-function setIsMenuOpen(arg0: boolean): void {
-  throw new Error("Function not implemented.");
-}
