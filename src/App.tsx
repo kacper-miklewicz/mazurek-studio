@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Offer from "./pages/Offer";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="projekty" element={<Projects />} />
         <Route path="oferta" element={<Offer />} />
         <Route path="kontakt" element={<Contact />} />
+        <Route path="admin" element={<AdminPanel />} />
       </Routes>
     </div>
   );
