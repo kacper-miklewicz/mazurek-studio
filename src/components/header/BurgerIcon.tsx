@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../state/hooks";
-import { showMenuSelector } from "../state/selectors/showMenu";
-import { setShowMenu } from "../state/slices/showMenuSlice";
+import { useAppDispatch, useAppSelector } from "../../state/hooks";
+import { showMenuSelector } from "../../state/selectors/showMenu";
+import { setShowMenu } from "../../state/slices/showMenuSlice";
 
 const BurgerIcon: React.FC = () => {
   const showMenu = useAppSelector(showMenuSelector);

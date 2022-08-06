@@ -3,7 +3,7 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 
-import { db, storage } from "../firebase/config";
+import { db, storage } from "../../firebase/config";
 
 interface AdminPanelProps {
   setShowAdminPanel: Dispatch<SetStateAction<boolean>>;
@@ -70,23 +70,14 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ setShowAdminPanel }) => {
       `${projectId}/${projectId + photoCount}.${selected.name.split(".").pop()}`
     );
 
-    try {
-      const uploadTask = await uploadBytes(imagesStorageRef, selected);
-      const url = await getDownloadURL(uploadTask.ref);
-      setPhotos(prevPhotos => [...prevPhotos, url]);
-      setPhotoCount(photoCount + 1);
-    } catch (err) {
-      console.log(err);
-    }
+    const uploadTask = await uploadBytes(imagesStorageRef, selected);
+    const url = await getDownloadURL(uploadTask.ref);
+    setPhotos(prevPhotos => [...prevPhotos, url]);
+    setPhotoCount(photoCount + 1);
   };
 
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    console.log("Zdjęcie główne:", coverPhotoURL);
-    console.log("Nazwa projektu:", title);
-    console.log("ID projektu:", projectId);
-    console.log("Zdjęcia projektu:", photos);
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     try {
       const docRef = await addDoc(collection(db, "projects"), {

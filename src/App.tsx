@@ -3,9 +3,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Offer from "./pages/Offer";
-import Admin from "./pages/Admin";
+import Admin from "./pages/admin/Admin";
 
 function App() {
   return (

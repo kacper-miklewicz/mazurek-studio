@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AdminPanel from "../components/AdminPanel";
+import AdminPanel from "./AdminPanel";
 
 interface AdminProps {}
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../state/hooks";
-import { showMenuSelector } from "../state/selectors/showMenu";
-import { setShowMenu } from "../state/slices/showMenuSlice";
+import { useAppDispatch, useAppSelector } from "../../state/hooks";
+import { showMenuSelector } from "../../state/selectors/showMenu";
+import { setShowMenu } from "../../state/slices/showMenuSlice";
 import BurgerIcon from "./BurgerIcon";
 import Navbar from "./Navbar";
 

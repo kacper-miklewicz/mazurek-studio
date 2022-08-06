@@ -1,7 +1,7 @@
 import MenuLink from "./MenuLink";
 
-import { useAppDispatch } from "../state/hooks";
-import { setShowMenu } from "../state/slices/showMenuSlice";
+import { useAppDispatch } from "../../state/hooks";
+import { setShowMenu } from "../../state/slices/showMenuSlice";
 
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
