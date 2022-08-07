@@ -20,11 +20,8 @@ const useAddProject = () => {
         setIsPending(false);
         return;
       }
-
-      console.log("Zapisano dokument o id:", docRef.id);
       setIsPending(false);
     } catch (e: any) {
-      console.log("Błąd przy dodawaniu dokumentu:", e);
       setError(e);
       setIsPending(false);
     }
