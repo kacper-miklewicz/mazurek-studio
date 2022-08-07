@@ -1,12 +1,46 @@
 import { Route, Routes } from "react-router-dom";
+
 import Home from "./pages/home/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Header from "./components/header/Header";
 import Offer from "./pages/Offer";
 import Admin from "./pages/admin/Admin";
+import { useEffect } from "react";
+
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebase/config";
+import { Project } from "./types/project";
+
+import { useAppDispatch } from "./state/hooks";
+import { setProjects } from "./state/slices/projectsSlice";
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const querySnapshot = await getDocs(collection(db, "projects"));
+      const projects: Project[] = [];
+
+      querySnapshot.forEach(doc => {
+        const docData = doc.data();
+
+        projects.push({
+          title: docData.title,
+          projectId: docData.projectId,
+          description: docData.description,
+          coverPhotoURL: docData.coverPhotoUrl,
+          photos: docData.photos,
+        });
+      });
+
+      dispatch(setProjects(projects));
+    };
+
+    getProjects();
+  }, []);
+
   return (
     <div className="App">
       <Header />

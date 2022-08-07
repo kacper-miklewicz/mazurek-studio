@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       >
         <ul className="w-full">
           <MenuLink pageLink="o-mnie" text="O mnie" />
-          <MenuLink pageLink="projekty" text="Projekty" />
+          <MenuLink pageLink="/" text="Projekty" />
           <MenuLink pageLink="oferta" text="Oferta" />
           <MenuLink pageLink="kontakt" text="Kontakt" />
         </ul>
