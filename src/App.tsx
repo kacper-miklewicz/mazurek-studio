@@ -30,7 +30,7 @@ function App() {
           title: docData.title,
           projectId: docData.projectId,
           description: docData.description,
-          coverPhotoURL: docData.coverPhotoUrl,
+          coverPhotoURL: docData.coverPhotoURL,
           photos: docData.photos,
         });
       });

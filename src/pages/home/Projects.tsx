@@ -1,14 +1,19 @@
 import { useAppSelector } from "../../state/hooks";
 import { projectsSelector } from "../../state/selectors/projects";
 
+import ProjectCard from "../../components/ProjectCard";
+
 const Projects: React.FC = () => {
   const projects = useAppSelector(projectsSelector);
-  console.log(projects);
 
   return (
-    <main>
-      <h1 className="text-2xl">Projects</h1>
-    </main>
+    <section>
+      <ul className="mt-10">
+        {projects.map(project => (
+          <ProjectCard key={project.projectId} data={project} />
+        ))}
+      </ul>
+    </section>
   );
 };
 
