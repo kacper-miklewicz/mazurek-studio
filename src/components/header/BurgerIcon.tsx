@@ -11,7 +11,7 @@ const BurgerIcon: React.FC = () => {
   };
 
   return (
-    <button onClick={handleBurgerClick} className="z-10">
+    <button onClick={handleBurgerClick} className="z-20">
       <span
         className={`bg-black w-6 h-[3px] block my-1 transition-all ${
           showMenu && "-rotate-45 translate-y-[7px] l:translate-y-[12px]"
