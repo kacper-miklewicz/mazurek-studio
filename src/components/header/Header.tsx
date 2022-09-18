@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../state/hooks";
 import { showMenuSelector } from "../../state/selectors/showMenu";
 import { setShowMenu } from "../../state/slices/showMenuSlice";
-import BurgerIcon from "./BurgerIcon";
+import ShowMenuIcon from "./ShowMenuIcon";
+import plusIcon from "../../assets/icons/plus-icon.svg";
 import Navbar from "./Navbar";
 
 const Header: React.FC = () => {
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between items-center px-8 h-[70px] l:px-14 bg-lighter">
+    <header className="flex justify-between items-center px-8 h-[70px] l:px-14 bg-lighter md:h-[120px]">
       <Link
         to="/"
         className="text-xl z-10 l:text-2xl"
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
       >
         mazurek studio
       </Link>
-      <BurgerIcon />
+      <ShowMenuIcon />
       {showMenu && <Navbar />}
     </header>
   );

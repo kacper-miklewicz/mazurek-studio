@@ -14,6 +14,7 @@ import { Project } from "./types/project";
 
 import { useAppDispatch } from "./state/hooks";
 import { setProjects } from "./state/slices/projectsSlice";
+import ProjectPage from "./pages/project/ProjectPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -50,6 +51,7 @@ function App() {
         <Route path="oferta" element={<Offer />} />
         <Route path="kontakt" element={<Contact />} />
         <Route path="admin" element={<Admin />} />
+        <Route path="projekty/:id" element={<ProjectPage />} />
       </Routes>
     </div>
   );
