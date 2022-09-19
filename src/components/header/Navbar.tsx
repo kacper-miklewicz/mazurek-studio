@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-10">
+    <div className="fixed top-0 left-0 w-full h-full z-10 backdrop-blur-[2px] transition-all">
       <nav
         className={
           "flex absolute top-0 right-0 items-center w-full h-screen bg-darker md:w-1/3 l:w-1/4"
