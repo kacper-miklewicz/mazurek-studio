@@ -3,8 +3,8 @@ import { useAppDispatch, useAppSelector } from "../../state/hooks";
 import { showMenuSelector } from "../../state/selectors/showMenu";
 import { setShowMenu } from "../../state/slices/showMenuSlice";
 import ShowMenuIcon from "./ShowMenuIcon";
-import plusIcon from "../../assets/icons/plus-icon.svg";
 import Navbar from "./Navbar";
+import logo from "../../assets/logo.png";
 
 const Header: React.FC = () => {
   const showMenu = useAppSelector(showMenuSelector);
@@ -17,13 +17,13 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between items-center px-8 h-[70px] l:px-14 bg-lighter md:h-[120px]">
+    <header className="flex justify-between items-center px-8 py-5 l:px-14 bg-lighter md:h-[120px]">
       <Link
         to="/"
-        className="text-xl z-10 l:text-2xl"
+        className="text-xl z-10 l:text-2xl w-[200px]"
         onClick={handleLogoClick}
       >
-        mazurek studio
+        <img src={logo} alt="page logo" className="w-full" />
       </Link>
       <ShowMenuIcon />
       {showMenu && <Navbar />}
