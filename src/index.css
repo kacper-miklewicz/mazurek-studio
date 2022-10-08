@@ -36,7 +36,16 @@ body {
     }
 
     .project-card:hover .project-card-img {
-      transform: scale(1.25);
+      transform: scale(1.05);
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #fff !important;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      color: white;
     }
   }
 }

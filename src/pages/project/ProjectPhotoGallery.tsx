@@ -1,3 +1,5 @@
+import { MouseEventHandler, useState } from "react";
+import ImageModal from "../../components/gallery-swiper/ImageModal";
 import PhotoWrapper from "./PhotoWrapper";
 
 interface ProjectPhotoGalleryProps {
@@ -7,11 +9,31 @@ interface ProjectPhotoGalleryProps {
 const ProjectPhotoGallery: React.FC<ProjectPhotoGalleryProps> = ({
   photos,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="grid justify-center gap-2 xs:grid-cols-2 s:grid-cols-3 md:grid-cols-4">
-      {photos.map(url => (
-        <PhotoWrapper key={url} photoUrl={url} />
+      {photos.map((url, index) => (
+        <PhotoWrapper
+          key={url}
+          photoUrl={url}
+          index={index}
+          openModal={openModal}
+          setActiveSlideIndex={setActiveSlideIndex}
+        />
       ))}
+      {isModalOpen && (
+        <ImageModal
+          photos={photos}
+          setIsOpen={setIsModalOpen}
+          initialSlideIndex={activeSlideIndex}
+        />
+      )}
     </div>
   );
 };
