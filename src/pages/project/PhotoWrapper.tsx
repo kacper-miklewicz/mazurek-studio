@@ -1,4 +1,9 @@
-import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+import {
+  Dispatch,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  SetStateAction,
+} from "react";
 
 interface PhotoWrapperProps {
   photoUrl: string;
@@ -18,9 +23,18 @@ const PhotoWrapper: React.FC<PhotoWrapperProps> = ({
     setActiveSlideIndex(index);
   };
 
+  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = event => {
+    if (event.key === "Enter") {
+      openModal();
+      setActiveSlideIndex(index);
+    }
+  };
+
   return (
     <div
-      onClick={() => handleClick()}
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
       className="w-full aspect-square overflow-hidden max-w-[450px] cursor-pointer"
     >
       <img src={photoUrl} className="w-full h-full object-cover" />

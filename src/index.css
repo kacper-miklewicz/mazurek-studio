@@ -38,14 +38,14 @@ body {
     .project-card:hover .project-card-img {
       transform: scale(1.05);
     }
+  }
 
-    .swiper-pagination-bullet {
-      background-color: #fff !important;
-    }
+  .swiper-pagination-bullet {
+    background-color: #fff !important;
+  }
 
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      color: white;
-    }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    color: white !important;
   }
 }

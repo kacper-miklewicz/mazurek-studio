@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  Dispatch,
-  KeyboardEventHandler,
-  SetStateAction,
-  useState,
-} from "react";
+import { useEffect, Dispatch, SetStateAction, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Keyboard } from "swiper";
@@ -13,7 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
 import { HiOutlineX } from "react-icons/hi";
-import { CSSSelector } from "swiper/types";
 
 interface ImageModalProps {
   photos: string[];
@@ -27,7 +20,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
   initialSlideIndex,
 }) => {
   // TODO: Add resize detection to hide navigation on mobile devices
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -55,9 +48,11 @@ const ImageModal: React.FC<ImageModalProps> = ({
         slidesPerView={1}
         initialSlide={initialSlideIndex}
         modules={[Navigation, Pagination, Keyboard]}
-        navigation
+        navigation={{
+          enabled: isMobile,
+        }}
         keyboard={{
-          enabled: true,
+          enabled: isMobile,
           onlyInViewport: false,
         }}
         pagination={{
@@ -69,6 +64,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
         {photos.map(url => (
           <SwiperSlide className="flex justify-center items-center" key={url}>
             <img
+              alt=""
               className="w-full block max-h-[85vh] object-contain"
               src={url}
             />
