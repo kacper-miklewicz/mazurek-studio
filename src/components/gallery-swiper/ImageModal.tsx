@@ -1,12 +1,13 @@
 import { useEffect, Dispatch, SetStateAction, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Keyboard } from "swiper";
+import { Navigation, Keyboard } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
 import { HiOutlineX } from "react-icons/hi";
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
 interface ImageModalProps {
   photos: string[];
@@ -19,6 +20,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
   setIsOpen,
   initialSlideIndex,
 }) => {
+  const { lockScroll, unlockScroll } = useLockBodyScroll();
   // TODO: Add resize detection to hide navigation on mobile devices
   const [isMobile, setIsMobile] = useState(true);
 
@@ -29,35 +31,32 @@ const ImageModal: React.FC<ImageModalProps> = ({
   };
 
   useEffect(() => {
+    lockScroll();
     document.addEventListener("keydown", handleKeyDown);
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      unlockScroll();
     };
   });
 
   return (
     <div className="fixed flex justify-center top-0 left-0 w-full h-full bg-black/50 z-30">
-      <div
+      <button
         onClick={() => setIsOpen(false)}
         className="absolute top-3 right-3 text-white z-10 cursor-pointer"
       >
         <HiOutlineX className="text-2xl" />
-      </div>
+      </button>
       <Swiper
         slidesPerView={1}
         initialSlide={initialSlideIndex}
-        modules={[Navigation, Pagination, Keyboard]}
+        modules={[Navigation, Keyboard]}
         navigation={{
           enabled: isMobile,
         }}
         keyboard={{
           enabled: isMobile,
           onlyInViewport: false,
-        }}
-        pagination={{
-          clickable: true,
-          bulletElement: "swiper-pagination-bullet",
         }}
         className="select-none"
       >

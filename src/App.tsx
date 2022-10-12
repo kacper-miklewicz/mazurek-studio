@@ -15,6 +15,7 @@ import { Project } from "./types/project";
 import { useAppDispatch } from "./state/hooks";
 import { setProjects } from "./state/slices/projectsSlice";
 import ProjectPage from "./pages/project/ProjectPage";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -43,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App flex flex-col justify-between min-h-[100vh]">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -53,6 +54,7 @@ function App() {
         <Route path="admin" element={<Admin />} />
         <Route path="projekty/:id" element={<ProjectPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

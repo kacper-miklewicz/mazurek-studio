@@ -2,14 +2,26 @@ import MenuLink from "./MenuLink";
 
 import { useAppDispatch } from "../../state/hooks";
 import { setShowMenu } from "../../state/slices/showMenuSlice";
+import { useEffect } from "react";
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
+
+  const { lockScroll, unlockScroll } = useLockBodyScroll();
 
   const handleClick = (e: any) => {
     e.stopPropagation();
     dispatch(setShowMenu(false));
   };
+
+  useEffect(() => {
+    lockScroll();
+
+    return () => {
+      unlockScroll();
+    };
+  }, []);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full z-10 transition-all bg-[rgba(0,0,0,.4)]">
