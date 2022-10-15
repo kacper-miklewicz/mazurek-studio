@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     <header className="flex justify-between items-center px-8 py-5 l:px-14 bg-lighter md:h-[120px]">
       <Link
         to="/"
-        className="text-xl z-10 l:text-2xl w-[200px]"
+        className="text-xl z-10 l:text-2xl w-[200px] s:w-[250px]"
         onClick={handleLogoClick}
       >
         <img src={logo} alt="page logo" className="w-full" />

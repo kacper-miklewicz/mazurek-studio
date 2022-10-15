@@ -10,7 +10,7 @@ const MenuLink: React.FC<MenuLinkProps> = props => {
     <li>
       <NavLink
         to={props.pageLink}
-        className="block w-full text-center text-2xl leading-[2.5]"
+        className="block w-full text-center text-2xl leading-[2.5] hover:text-black/70"
       >
         {props.text}
       </NavLink>
