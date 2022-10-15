@@ -1,12 +1,12 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Contact from "./pages/contact/Contact";
 import Header from "./components/header/Header";
 import Offer from "./pages/Offer";
 import Admin from "./pages/admin/Admin";
-import { useEffect } from "react";
 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase/config";
@@ -41,7 +41,7 @@ function App() {
     };
 
     getProjects();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App flex flex-col justify-between min-h-[100vh]">
