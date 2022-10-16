@@ -4,7 +4,7 @@ import { showMenuSelector } from "../../state/selectors/showMenu";
 import { setShowMenu } from "../../state/slices/showMenuSlice";
 import ShowMenuIcon from "./ShowMenuIcon";
 import Navbar from "./Navbar";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/img/logo.png";
 
 const Header: React.FC = () => {
   const showMenu = useAppSelector(showMenuSelector);

@@ -39,6 +39,29 @@ body {
       transform: scale(1.05);
     }
   }
+
+  .studio-description {
+    position: relative;
+  }
+
+  .studio-description::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    background-color: #d5bdaf;
+    width: 30%;
+    height: 1px;
+  }
+
+  .about-title {
+    @apply text-xl s:text-2xl;
+  }
+
+  .about-text {
+    @apply s:text-lg;
+  }
 }
 
 .swiper-button-next::after,
