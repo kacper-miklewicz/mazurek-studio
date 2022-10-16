@@ -6,15 +6,15 @@ const StudioDescription: React.FC<StudioDescriptionProps> = () => {
   return (
     <section className="studio-description flex flex-col gap-6 pb-20 mb-20 xs:gap-12">
       <h2 className="about-title">Mazurek Studio</h2>
+      <picture className="mx-auto">
+        <img src={studioMobile} alt="" />
+      </picture>
       <p className="about-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
         nesciunt! Consequuntur quam numquam iste quibusdam beatae autem optio
         vitae sapiente, magni voluptatum culpa voluptas, facere mollitia alias
         quos, libero quia?
       </p>
-      <picture className="mx-auto">
-        <img src={studioMobile} alt="" />
-      </picture>
       <p className="about-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas rem
         est temporibus totam ducimus molestias, dicta minus magnam cum porro,
