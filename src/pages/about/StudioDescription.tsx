@@ -1,5 +1,3 @@
-import studioMobile from "../../assets/img/o-mnie/o-mnie-studio-mobile.png";
-
 interface StudioDescriptionProps {}
 
 const StudioDescription: React.FC<StudioDescriptionProps> = () => {
@@ -7,7 +5,10 @@ const StudioDescription: React.FC<StudioDescriptionProps> = () => {
     <section className="studio-description flex flex-col gap-6 pb-20 mb-20 xs:gap-12">
       <h2 className="about-title">Mazurek Studio</h2>
       <picture className="mx-auto">
-        <img src={studioMobile} alt="" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/mazurek-studio.appspot.com/o/static%2Fimg%2Fo-mnie%2Fo-mnie-studio-mobile.png?alt=media&token=0bf163f8-c119-4da6-a482-00848c71e78c"
+          alt=""
+        />
       </picture>
       <p className="about-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
