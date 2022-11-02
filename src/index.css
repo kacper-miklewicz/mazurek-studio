@@ -40,11 +40,11 @@ body {
     }
   }
 
-  .studio-description {
+  .about-section {
     position: relative;
   }
 
-  .studio-description::after {
+  .about-section:not(:last-child):after {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -56,11 +56,11 @@ body {
   }
 
   .about-title {
-    @apply text-xl s:text-2xl;
+    @apply text-xl s:text-2xl md:text-3xl;
   }
 
   .about-text {
-    @apply s:text-lg;
+    @apply s:text-lg !leading-[1.85em] md:text-2xl;
   }
 }
 
