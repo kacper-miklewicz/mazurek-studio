@@ -27,7 +27,7 @@ body {
       height: 100%;
       color: white;
       background-color: rgba(0, 0, 0, 0.4);
-      transition: 0.1s linear;
+      transition: 0.3s linear;
       text-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
     }
 
@@ -40,27 +40,12 @@ body {
     }
   }
 
-  .about-section {
-    position: relative;
-  }
-
-  .about-section:not(:last-child):after {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    background-color: #d5bdaf;
-    width: 30%;
-    height: 1px;
-  }
-
   .about-title {
-    @apply text-xl s:text-2xl md:text-3xl;
+    @apply text-xl mb-4 s:text-2xl md:text-3xl;
   }
 
   .about-text {
-    @apply s:text-lg !leading-[1.85em] md:text-2xl;
+    @apply mb-5 s:text-lg !leading-[1.85em] md:text-2xl;
   }
 }
 

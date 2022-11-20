@@ -1,6 +1,5 @@
 interface AboutSectionProps {
   title: string;
-  reversed: boolean;
   mobileImg: string;
   desktopImg: string;
   className?: string;
@@ -9,7 +8,6 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = ({
   title,
-  reversed,
   mobileImg,
   desktopImg,
   className,
@@ -19,9 +17,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
     <>
       <h2 className="about-title md:mb-10">{title}</h2>
       <section
-        className={`${className} about-section flex flex-col gap-6 pb-20 mb-20 xs:gap-12 md:items-center ${
-          reversed ? "md:flex-row-reverse" : "md:flex-row"
-        }`}
+        className={`${className} about-section flex flex-col gap-6 xs:gap-12 md:items-center md:flex-row md:mb-20`}
       >
         <div className="md:w-1/2 md:flex-grow md:mr-10 l:mr-10">
           <picture className="mx-auto">

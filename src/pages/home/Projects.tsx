@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
 
   return (
     <section>
-      <ul className="my-10 px-5 grid gap-10 xs:px-10 s:px-16 md:py-10 md:grid-cols-2 md:gap-20 l:px-20 l:gap-36 xl:px-36 xl:gap-44">
+      <ul className="my-10 px-5 grid gap-10 xs:px-10 s:px-16 md:py-10 md:grid-cols-2 l:px-20 xl:px-36">
         {projects.map(project => (
           <ProjectCard key={project.projectId} data={project} />
         ))}

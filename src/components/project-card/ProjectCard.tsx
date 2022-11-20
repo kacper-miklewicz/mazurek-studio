@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           {data.title}
         </h3>
         <div
-          className="h-[500px] bg-cover bg-center relative transition-all project-card-img"
+          className="h-[500px] bg-cover bg-center relative transition-all duration-300 project-card-img"
           style={{ backgroundImage: `url(${data.coverPhotoURL}}` }}
         ></div>
       </Link>
