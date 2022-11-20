@@ -15,7 +15,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 }) => {
   return (
     <>
-      <h2 className="about-title md:mb-10">{title}</h2>
+      <h2 className="section-title md:mb-10">{title}</h2>
       <section
         className={`${className} about-section flex flex-col gap-6 xs:gap-12 md:items-center md:flex-row md:mb-20`}
       >
