@@ -6,7 +6,34 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white !important;
+}
+
 @layer components {
+  .about-title {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+
+  .about-text {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .about-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .about-text {
+      font-size: 20px;
+      line-height: 1.85em;
+    }
+  }
+
   @media (min-width: 1024px) {
     .project-card {
       position: relative;
@@ -38,18 +65,13 @@ body {
     .project-card:hover .project-card-img {
       transform: scale(1.05);
     }
-  }
 
-  .about-title {
-    @apply text-xl mb-4 s:text-2xl md:text-3xl;
-  }
+    .about-title {
+      font-size: 32px;
+    }
 
-  .about-text {
-    @apply mb-5 s:text-lg !leading-[1.85em] md:text-2xl;
+    .about-text {
+      font-size: 24px;
+    }
   }
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  color: white !important;
 }
