@@ -21,7 +21,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       >
         <div className="md:w-1/2 md:flex-grow md:mr-10 l:mr-10">
           <picture className="mx-auto">
-            <source media="(min-width: 1280px)" srcSet={desktopImg} />
+            <source media="(min-width: 1120px)" srcSet={desktopImg} />
             <img src={mobileImg} alt="about section" />
           </picture>
         </div>

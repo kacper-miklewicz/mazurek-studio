@@ -17,7 +17,7 @@ const ProjectPhotoGallery: React.FC<ProjectPhotoGalleryProps> = ({
   };
 
   return (
-    <div className="grid justify-center gap-2">
+    <div>
       {photos.map((url, index) => (
         <PhotoWrapper
           key={url}

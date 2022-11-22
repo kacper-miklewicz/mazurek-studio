@@ -35,7 +35,7 @@ const PhotoWrapper: React.FC<PhotoWrapperProps> = ({
       tabIndex={0}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
-      className="w-full overflow-hidden cursor-pointer"
+      className="w-full overflow-hidden cursor-pointer mb-2"
     >
       <img src={photoUrl} className="w-full h-full object-cover" />
     </div>

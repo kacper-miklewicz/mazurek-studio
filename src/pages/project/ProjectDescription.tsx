@@ -9,8 +9,8 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
 }) => {
   return (
     <>
-      <h2 className="section-title">{title}</h2>
-      <p className="section-text mb-10 xs:mb-10 s:mb-16">{text}</p>
+      <h2 className={"section-title"}>{title}</h2>
+      <p className={"section-text mb-10 xs:mb-10 s:mb-16"}>{text}</p>
     </>
   );
 };
