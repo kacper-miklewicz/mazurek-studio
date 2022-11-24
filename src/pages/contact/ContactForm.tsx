@@ -3,7 +3,17 @@ interface ContactFormProps {}
 const ContactForm: React.FC<ContactFormProps> = () => {
   return (
     <form>
-      <h3 className="font-bold mb-8">Lub przez formularz kontaktowy:</h3>
+      <h3 className="font-bold mb-8 s:text-xl">
+        Lub przez formularz kontaktowy:
+      </h3>
+      <label className="contact-form-field">
+        <span>Imię</span>
+        <input type="text" />
+      </label>
+      <label className="contact-form-field">
+        <span>Nazwisko</span>
+        <input type="text" />
+      </label>
       <label className="contact-form-field">
         <span>Numer telefonu</span>
         <input type="tel" />
