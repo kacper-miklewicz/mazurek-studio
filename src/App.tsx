@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Header from "./components/header/Header";
-import Offer from "./pages/Offer";
+import Offer from "./pages/offer/Offer";
 import Admin from "./pages/admin/Admin";
 
 import { collection, getDocs } from "firebase/firestore";
