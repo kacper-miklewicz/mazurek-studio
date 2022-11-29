@@ -8,7 +8,7 @@ const OfferPoints: React.FC<OfferPointsProps> = () => {
   return (
     <>
       <p className="section-text mt-16">{secondParagraph}</p>
-      <ul>
+      <ul className="w-fit mx-auto">
         {offerPoints.map((op, index) => (
           <OfferPoint
             key={op.mainText}
