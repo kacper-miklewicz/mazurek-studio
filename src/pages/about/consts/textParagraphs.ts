@@ -5,7 +5,7 @@ export const paragraphs = [
   "Zapraszam do zapoznania się z ofertą.",
 ];
 
-export const offerParagraph = "Kliknij tutaj, aby przejść do oferty.";
+export const offerParagraph = "Kliknij tutaj, aby przejść do oferty";
 
 export const finalParagraph =
   "Stwórzmy razem Twoje wymarzone miejsce na ziemi!";

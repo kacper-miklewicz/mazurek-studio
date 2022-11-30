@@ -3,7 +3,7 @@ import OfferPoints from "./OfferPoints";
 
 const Offer: React.FC = () => {
   return (
-    <main className="px-5 py-10 mx-auto w-fit max-w-[550px] xs:px-16 md:max-w-[860px]">
+    <main className="px-5 py-10 mx-auto w-fit max-w-[550px] xs:px-16 md:max-w-[920px]">
       <h2 className="section-title md:mb-10">Oferta</h2>
       <p className="section-text">{firstParagraph}</p>
       <picture className="mx-auto">

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { useAppSelector } from "../../state/hooks";
 import { projectsSelector } from "../../state/selectors/projects";
@@ -23,6 +23,12 @@ const ProjectPage: React.FC<ProjectPageProps> = () => {
             text={project.description}
           />
           <ProjectPhotoGallery photos={project.photos} />
+          <Link
+            className="block w-full text-center text-lg text-black hover:text-black/80 underline s:text-xl"
+            to="/"
+          >
+            Powrót do projektów
+          </Link>
         </section>
       )}
     </>

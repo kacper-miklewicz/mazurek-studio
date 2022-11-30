@@ -17,7 +17,7 @@ const ProjectPhotoGallery: React.FC<ProjectPhotoGalleryProps> = ({
   };
 
   return (
-    <div>
+    <div className="mb-12">
       {photos.map((url, index) => (
         <PhotoWrapper
           key={url}

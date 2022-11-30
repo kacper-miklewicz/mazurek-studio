@@ -16,10 +16,10 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex justify-between items-center px-8 py-5 l:px-14 bg-lighter md:h-[120px]">
+    <header className="flex justify-between items-center px-8 py-8 xs:py-10 xs:px-12 s:py-12 s:px-16 l:px-20 xl:px-32">
       <Link
         to="/"
-        className="text-xl z-10 l:text-2xl w-[200px] s:w-[250px]"
+        className="text-xl z-10 l:text-2xl w-[210px] xs:w-[250px] s:w-[300px]"
         onClick={handleLogoClick}
       >
         <img
