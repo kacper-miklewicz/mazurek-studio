@@ -16,9 +16,11 @@ import { useAppDispatch } from "./state/hooks";
 import { setProjects } from "./state/slices/projectsSlice";
 import ProjectPage from "./pages/project/ProjectPage";
 import Footer from "./components/footer/Footer";
+import useScrollToTop from "./hooks/useScrollToTop";
 
 function App() {
   const dispatch = useAppDispatch();
+  useScrollToTop();
 
   useEffect(() => {
     const getProjects = async () => {

@@ -10,7 +10,7 @@ const OfferPoint: React.FC<OfferPointProps> = ({
   secondaryText,
 }) => {
   return (
-    <li className="py-6 flex w-fit">
+    <li className="offer-point py-6 flex w-full md:py-16">
       <div className="flex items-center px-6 mr-6 text-3xl text-darker font-bold border-r border-darker">
         {number}
       </div>
