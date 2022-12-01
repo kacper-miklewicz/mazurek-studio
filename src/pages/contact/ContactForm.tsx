@@ -1,43 +1,65 @@
-import { FormEvent } from "react";
+import { useForm } from "react-hook-form";
+import ErrorMessage from "../../components/error-message/ErrorMessage";
+import FormSubmitButton from "../../components/form-submit-button/FormSubmitButton";
+import ContactFormField from "./ContactFormField";
 
 const ContactForm: React.FC = () => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h3 className="font-bold mb-8 s:text-xl">
         Lub przez formularz kontaktowy:
       </h3>
-      <label className="contact-form-field">
-        <span>Imię</span>
-        <input type="text" />
-      </label>
-      <label className="contact-form-field">
-        <span>Nazwisko</span>
-        <input type="text" />
-      </label>
-      <label className="contact-form-field">
-        <span>Numer telefonu</span>
-        <input type="tel" />
-      </label>
-      <label className="contact-form-field">
-        <span>E-mail</span>
-        <input type="email" />
-      </label>
+
+      <ContactFormField title="Imię">
+        <input {...register("firstName", { required: true })} type="text" />
+        {errors.firstName && <ErrorMessage message="Podaj imię" />}
+      </ContactFormField>
+
+      <ContactFormField title="Nazwisko">
+        <input {...register("lastName", { required: true })} type="text" />
+        {errors.lastName && <ErrorMessage message="Podaj nazwisko" />}
+      </ContactFormField>
+
+      <ContactFormField title="Numer telefonu">
+        <input
+          {...register("phoneNumber", {
+            required: true,
+          })}
+          type="tel"
+        />
+        {errors.phoneNumber && <ErrorMessage message="Podaj numer telefonu" />}
+      </ContactFormField>
+
+      <ContactFormField title="E-mail">
+        <input
+          {...register("email", {
+            required: true,
+          })}
+          type="email"
+        />
+        {errors.email && <ErrorMessage message="Podaj e-mail" />}
+      </ContactFormField>
+
       <label className="contact-form-field">
         <span>Wiadomość</span>
-        <textarea className="resize-none h-60"></textarea>
+        <textarea
+          {...register("message", { required: true })}
+          className="resize-none h-60"
+        ></textarea>
+        {errors.message && <ErrorMessage message="Wpisz wiadomość" />}
       </label>
-      <div className="w-full text-center">
-        <button
-          className="bg-black/80 hover:bg-black text-white px-20 py-2 rounded"
-          type="submit"
-        >
-          Wyślij
-        </button>
-      </div>
+
+      <FormSubmitButton text="Wyślij" />
     </form>
   );
 };
