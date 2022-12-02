@@ -6,17 +6,19 @@ import ContactFormField from "./ContactFormField";
 const ContactForm: React.FC = () => {
   const onSubmit = (data: any) => {
     console.log(data);
+    reset();
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h3 className="font-bold mb-8 s:text-xl">
+      <h3 className="font-bold mt-6 mb-6 s:text-lg md:mb-2">
         Lub przez formularz kontaktowy:
       </h3>
 
@@ -54,7 +56,7 @@ const ContactForm: React.FC = () => {
         <span>Wiadomość</span>
         <textarea
           {...register("message", { required: true })}
-          className="resize-none h-60"
+          className="resize-none h-40"
         ></textarea>
         {errors.message && <ErrorMessage message="Wpisz wiadomość" />}
       </label>

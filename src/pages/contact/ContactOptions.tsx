@@ -6,9 +6,9 @@ interface ContactOptionsProps {}
 
 const ContactOptions: React.FC<ContactOptionsProps> = () => {
   return (
-    <div className="mt-16">
-      <h3 className="font-bold s:text-xl">Bezpośrednio:</h3>
-      <div className="pt-6 pb-12">
+    <div className="mt-10 md:mt-0">
+      <h3 className="font-bold s:text-lg">Bezpośrednio:</h3>
+      <div className="pt-2 md:pt-0">
         <a href={`tel:${phoneNumber}`}>
           <ContactOption icon={<FaPhone />} value={phoneNumber} />
         </a>

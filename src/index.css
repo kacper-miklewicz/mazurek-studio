@@ -27,7 +27,11 @@ body {
   .contact-form-field {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 4px;
+  }
+
+  .contact-form-field:last-of-type {
+    margin-bottom: 16px;
   }
 
   .contact-form-field input,
