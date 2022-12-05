@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/home/Home";
@@ -17,29 +17,44 @@ import { setProjects } from "./state/slices/projectsSlice";
 import ProjectPage from "./pages/project/ProjectPage";
 import Footer from "./components/footer/Footer";
 import useScrollToTop from "./hooks/useScrollToTop";
+import LoadingScreen from "./components/loading-screen/LoadingScreen";
 
 function App() {
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState<any>(null);
   const dispatch = useAppDispatch();
   useScrollToTop();
 
   useEffect(() => {
+    console.log("hej");
+
     const getProjects = async () => {
-      const querySnapshot = await getDocs(collection(db, "projects"));
-      const projects: Project[] = [];
+      try {
+        setIsPending(true);
+        setError(null);
 
-      querySnapshot.forEach(doc => {
-        const docData = doc.data();
+        const querySnapshot = await getDocs(collection(db, "projects"));
+        const projects: Project[] = [];
 
-        projects.push({
-          title: docData.title,
-          projectId: docData.projectId,
-          description: docData.description,
-          coverPhotoURL: docData.coverPhotoURL,
-          photos: docData.photos,
+        querySnapshot.forEach(doc => {
+          const docData = doc.data();
+
+          projects.push({
+            title: docData.title,
+            projectId: docData.projectId,
+            description: docData.description,
+            coverPhotoURL: docData.coverPhotoURL,
+            photos: docData.photos,
+          });
         });
-      });
 
-      dispatch(setProjects(projects));
+        dispatch(setProjects(projects));
+
+        setIsPending(false);
+      } catch (e) {
+        setError(e);
+        setIsPending(false);
+      }
     };
 
     getProjects();
@@ -47,6 +62,7 @@ function App() {
 
   return (
     <div className="App flex flex-col justify-between min-h-[100vh]">
+      {isPending && <LoadingScreen />}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
