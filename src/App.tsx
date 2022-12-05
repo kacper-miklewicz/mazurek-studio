@@ -18,6 +18,7 @@ import ProjectPage from "./pages/project/ProjectPage";
 import Footer from "./components/footer/Footer";
 import useScrollToTop from "./hooks/useScrollToTop";
 import LoadingScreen from "./components/loading-screen/LoadingScreen";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [isPending, setIsPending] = useState(false);
@@ -62,7 +63,7 @@ function App() {
 
   return (
     <div className="App flex flex-col justify-between min-h-[100vh]">
-      {isPending && <LoadingScreen />}
+      <AnimatePresence>{isPending && <LoadingScreen />}</AnimatePresence>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
