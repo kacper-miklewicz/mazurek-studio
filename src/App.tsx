@@ -1,34 +1,28 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import Header from "./components/header/Header";
-import Offer from "./pages/offer/Offer";
-import Admin from "./pages/admin/Admin";
-
+import { AnimatePresence } from "framer-motion";
 import { collection, getDocs } from "firebase/firestore";
+
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import LoadingScreen from "./components/loading-screen/LoadingScreen";
+import AnimatedRoutes from "./components/animated-routes/AnimatedRoutes";
+
 import { db } from "./firebase/config";
 import { Project } from "./types/project";
 
 import { useAppDispatch } from "./state/hooks";
 import { setProjects } from "./state/slices/projectsSlice";
-import ProjectPage from "./pages/project/ProjectPage";
-import Footer from "./components/footer/Footer";
 import useScrollToTop from "./hooks/useScrollToTop";
-import LoadingScreen from "./components/loading-screen/LoadingScreen";
-import { AnimatePresence } from "framer-motion";
 
-function App() {
+const App = () => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<any>(null);
   const dispatch = useAppDispatch();
   useScrollToTop();
 
   useEffect(() => {
-    console.log("hej");
-
     const getProjects = async () => {
       try {
         setIsPending(true);
@@ -65,17 +59,10 @@ function App() {
     <div className="App flex flex-col justify-between min-h-[100vh]">
       <AnimatePresence>{isPending && <LoadingScreen />}</AnimatePresence>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="o-mnie" element={<About />} />
-        <Route path="oferta" element={<Offer />} />
-        <Route path="kontakt" element={<Contact />} />
-        <Route path="admin" element={<Admin />} />
-        <Route path="projekty/:id" element={<ProjectPage />} />
-      </Routes>
+      <AnimatedRoutes />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

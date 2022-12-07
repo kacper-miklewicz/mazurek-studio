@@ -1,10 +1,17 @@
+import { motion } from "framer-motion";
+
 import ContactOptions from "./ContactOptions";
 import ContactForm from "./ContactForm";
 import ContactPhotos from "./ContactPhotos";
 
 const Contact: React.FC = () => {
   return (
-    <main className="py-10 s:py-16">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ transition: { delay: 0.5, duration: 0.5 }, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="py-10 s:py-16"
+    >
       <section className="mx-auto h-fit max-w-[600px] md:max-w-[1300px] px-10 xs:px-24">
         <h1 className="section-title">Zapraszam do kontaktu!</h1>
         <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center">
@@ -15,7 +22,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 };
 

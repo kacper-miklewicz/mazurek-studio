@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import {
   paragraphs as textParagraphs,
   offerParagraph,
@@ -7,7 +9,12 @@ import {
 
 const About: React.FC = () => {
   return (
-    <main className="px-5 py-10 mx-auto max-w-[550px] xs:px-16 md:max-w-[1480px]">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ transition: { delay: 0.5, duration: 0.5 }, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="px-5 py-10 mx-auto max-w-[550px] xs:px-16 md:max-w-[1480px]"
+    >
       <h2 className="section-title md:mb-10">O mnie</h2>
       <section className="about-section flex flex-col gap-6 xs:gap-12 md:items-center md:flex-row md:mb-20">
         <div className="md:w-1/2 md:flex-grow md:mr-10 l:mr-10">
@@ -37,7 +44,7 @@ const About: React.FC = () => {
           <p className="section-text">{finalParagraph}</p>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 };
 

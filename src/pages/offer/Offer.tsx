@@ -1,9 +1,16 @@
+import { motion } from "framer-motion";
+
 import { firstParagraph } from "./consts";
 import OfferPoints from "./OfferPoints";
 
 const Offer: React.FC = () => {
   return (
-    <main className="px-5 py-10 mx-auto w-fit max-w-[550px] xs:px-16 md:max-w-[920px]">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ transition: { delay: 0.5, duration: 0.5 }, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="px-5 py-10 mx-auto w-fit max-w-[550px] xs:px-16 md:max-w-[920px]"
+    >
       <h2 className="section-title md:mb-10">Oferta</h2>
       <p className="section-text">{firstParagraph}</p>
       <picture className="mx-auto">
@@ -17,7 +24,7 @@ const Offer: React.FC = () => {
         />
       </picture>
       <OfferPoints />
-    </main>
+    </motion.main>
   );
 };
 
