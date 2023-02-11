@@ -1,10 +1,30 @@
+import { useState } from "react";
+
 import { motion } from "framer-motion";
+
+import { ModalSeverity } from "./types";
 
 import ContactOptions from "./ContactOptions";
 import ContactForm from "./ContactForm";
 import ContactPhotos from "./ContactPhotos";
+import Modal from "./Modal";
 
 const Contact: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalSeverity, setModalSeverity] = useState<ModalSeverity>("info");
+
+  const displayModal = (message: string, severity: ModalSeverity) => {
+    setShowModal(true);
+    setModalMessage(message);
+    setModalSeverity(severity);
+
+    setTimeout(() => {
+      setShowModal(false);
+      setModalMessage("");
+    }, 3500);
+  };
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -18,9 +38,10 @@ const Contact: React.FC = () => {
           <ContactPhotos />
           <div className="flex flex-col md:mr-12 grow max-w-[400px]">
             <ContactOptions />
-            <ContactForm />
+            <ContactForm displayModal={displayModal} />
           </div>
         </div>
+        {showModal && <Modal message={modalMessage} severity={modalSeverity} />}
       </section>
     </motion.main>
   );

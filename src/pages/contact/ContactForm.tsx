@@ -1,13 +1,21 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+
+import { ModalSeverity } from "./types";
+import { EMAILJS_DATA, MODAL_MESSAGE } from "./consts";
+
 import ErrorMessage from "../../components/error-message/ErrorMessage";
 import FormSubmitButton from "../../components/form-submit-button/FormSubmitButton";
 import ContactFormField from "./ContactFormField";
 
-const ContactForm: React.FC = () => {
-  const onSubmit = (data: any) => {
-    console.log(data);
-    reset();
-  };
+interface ContactFormProps {
+  displayModal: (message: string, severity: ModalSeverity) => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ displayModal }) => {
+  const [isPending, setIsPending] = useState(false);
+  const { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } = EMAILJS_DATA;
 
   const {
     register,
@@ -15,6 +23,29 @@ const ContactForm: React.FC = () => {
     formState: { errors },
     reset,
   } = useForm();
+
+  const onSubmit = async (data: any) => {
+    const formData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      message: data.message,
+    };
+
+    try {
+      setIsPending(true);
+      await emailjs.send(SERVICE_ID!, TEMPLATE_ID!, formData, PUBLIC_KEY!);
+      displayModal(MODAL_MESSAGE.SUCCESS, "info");
+    } catch (err) {
+      console.log(err);
+      displayModal(MODAL_MESSAGE.ERROR, "error");
+    } finally {
+      setIsPending(false);
+    }
+
+    reset();
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,7 +92,7 @@ const ContactForm: React.FC = () => {
         {errors.message && <ErrorMessage message="Wpisz wiadomość" />}
       </label>
 
-      <FormSubmitButton text="Wyślij" />
+      <FormSubmitButton text={isPending ? "Wysyłanie..." : "Wyślij"} />
     </form>
   );
 };
