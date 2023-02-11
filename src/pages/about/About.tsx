@@ -31,7 +31,7 @@ const About: React.FC = () => {
         </div>
         <div className="md:w-1/2">
           {textParagraphs.map(paragraph => (
-            <p key={paragraph} className="section-text md:mb-6">
+            <p key={paragraph} className="section-text md:mb-6 text-justify">
               {paragraph}
             </p>
           ))}

@@ -3,7 +3,6 @@ import SocialsItem from "./SocialsItem";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
-// import { FaLinkedinIn } from "react-icons/fa";
 
 interface SocialsProps {}
 
@@ -18,8 +17,10 @@ const Socials: React.FC<SocialsProps> = () => {
         url="https://www.facebook.com/profile.php?id=100087601991813"
         icon={<FaFacebookF />}
       />
-      {/* <SocialsItem url="https://www.linkedin.com" icon={<FaLinkedinIn />} /> */}
-      <SocialsItem url="https://www.pinterest.com" icon={<FaPinterestP />} />
+      <SocialsItem
+        url="https://pl.pinterest.com/mazurekstudio0270/"
+        icon={<FaPinterestP />}
+      />
     </ul>
   );
 };
