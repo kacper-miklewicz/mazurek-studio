@@ -17,6 +17,7 @@ body {
     font-size: 22px;
     margin-bottom: 16px;
     font-weight: bold;
+    text-transform: uppercase;
   }
 
   .section-text {
@@ -41,6 +42,10 @@ body {
 
   .contact-form-field span {
     padding: 4px 0;
+  }
+
+  .project-card h3 {
+    text-transform: uppercase;
   }
 
   @media (min-width: 768px) {

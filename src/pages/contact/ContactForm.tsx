@@ -35,10 +35,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ displayModal }) => {
 
     try {
       setIsPending(true);
-      await emailjs.send(SERVICE_ID!, TEMPLATE_ID!, formData, PUBLIC_KEY!);
+      await emailjs.send("zle", TEMPLATE_ID!, formData, PUBLIC_KEY!);
       displayModal(MODAL_MESSAGE.SUCCESS, "info");
     } catch (err) {
-      console.log(err);
+      console.error(err);
       displayModal(MODAL_MESSAGE.ERROR, "error");
     } finally {
       setIsPending(false);
