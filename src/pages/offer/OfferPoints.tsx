@@ -15,6 +15,7 @@ const OfferPoints: React.FC<OfferPointsProps> = () => {
             number={index + 1}
             mainText={op.mainText}
             secondaryText={op.secondaryText}
+            tertiaryText={op.tertiaryText}
           />
         ))}
       </ul>

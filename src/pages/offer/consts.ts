@@ -11,19 +11,30 @@ export const offerPoints = [
       "Omówienie potrzeb inwestora w oparciu o wysłany wcześniej brief projektowy – ankieta projektanta",
   },
   {
-    mainText: "Projekt funkcjonalny",
+    mainText: "Inwentaryzacja",
+    secondaryText:
+      "Dokładny pomiar projektowanej przestrzeni, który uwzględnia istniejące ściany, otwory drzwiowe/okienne, wysokość pomieszczeń. Zwymiarowanie istniejącej instalacji elektrycznej i wod-kan oraz wykonanie dokumentacji fotograficznej inwestycji",
   },
   {
-    mainText: "Projekt koncepcyjny",
+    mainText: "Układ funkcjonalny",
+    secondaryText:
+      "2-3 propozycje rozmieszczenia wszystkich projektowanych elementów na rzucie 2D z uwzględnieniem ergonomii i funkcjonalności stworzone na podstawie preferencji klienta",
   },
   {
-    mainText: "Projekt wykonawczy",
-    secondaryText: "Rysunki techniczne",
+    mainText: "Wizualizacje 3D",
+    secondaryText: "Fotorealistyczne wizualizacje projektowanych pomieszczeń",
+  },
+  {
+    mainText: "Dokumentacja techniczna",
+    secondaryText:
+      "Zawiera Rysunki 2D rzutów instalacji elektrycznej, wod-kan, zmian układu ścian, wykończenia podłóg,  wykończenia ścian oraz wszystkie Rysunki techniczne będące instrukcją dla poszczególnych wykonawców (tj. stolarz, szklarz, tapicer, kafelkarz)",
   },
   {
     mainText: "Finalny kosztorys",
     secondaryText:
-      "Bez uwzględnienia cen materiałów budowlanych oraz robocizny",
+      "Zestawienie wszystkich mebli, materiałów w postaci tabelki ze zdjęciami, adresami sklepów,  ilością produktów i ceną*.",
+    tertiaryText:
+      "*bez uwzględnienia cen materiałów budowlanych oraz robocizny",
   },
 ];
 
