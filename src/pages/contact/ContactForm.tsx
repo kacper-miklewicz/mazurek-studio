@@ -8,7 +8,6 @@ import { EMAILJS_DATA, MODAL_MESSAGE } from "./consts";
 import ErrorMessage from "../../components/error-message/ErrorMessage";
 import FormSubmitButton from "../../components/form-submit-button/FormSubmitButton";
 import ContactFormField from "./ContactFormField";
-import { FaFileUpload } from "react-icons/fa";
 
 interface ContactFormProps {
   displayModal: (message: string, severity: ModalSeverity) => void;
@@ -82,14 +81,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ displayModal }) => {
           type="email"
         />
         {errors.email && <ErrorMessage message="Podaj e-mail" />}
-      </ContactFormField>
-
-      <ContactFormField title="Rzut przestrzeni (opcjonalnie)">
-        <input className="!px-0 hidden" type="file" />
-        <div className="flex items-center justify-center bg-darker/90 my-2 py-1 text-center cursor-pointer rounded text-lg hover:bg-darker">
-          <FaFileUpload size={22} />
-          <div className="ml-4">Załaduj plik</div>
-        </div>
       </ContactFormField>
 
       <label className="contact-form-field">

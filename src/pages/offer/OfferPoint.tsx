@@ -1,25 +1,24 @@
 interface OfferPointProps {
-  number: number;
-  mainText: string;
-  secondaryText?: string;
-  tertiaryText?: string;
+  title?: string;
+  paragraphs: string[];
 }
 
-const OfferPoint: React.FC<OfferPointProps> = ({
-  number,
-  mainText,
-  secondaryText,
-  tertiaryText,
-}) => {
+const OfferPoint: React.FC<OfferPointProps> = ({ title, paragraphs }) => {
   return (
-    <li className="offer-point py-6 flex w-full md:py-8">
-      <div className="flex items-center px-6 mr-6 text-3xl text-darker font-bold border-r border-darker">
-        {number}
-      </div>
+    <li className="offer-point py-8 flex w-full md:py-10">
       <div>
-        <p className="text-lg leading-10">{mainText}</p>
-        {secondaryText && <p className="text-sm">{secondaryText}</p>}
-        {tertiaryText && <p className="mt-2 text-xs">{tertiaryText}</p>}
+        {title && (
+          <p className="flex items-center text-xl pb-4 mb-6 text-darker border-b border-darker font-bold">
+            {title}
+          </p>
+        )}
+        <ul className="pl-6">
+          {paragraphs.map(paragraph => (
+            <li className="mb-2 list-[square] marker:text-darker s:text-[18px]">
+              {paragraph}
+            </li>
+          ))}
+        </ul>
       </div>
     </li>
   );

@@ -11,11 +11,9 @@ const OfferPoints: React.FC<OfferPointsProps> = () => {
       <ul className="w-fit mx-auto">
         {offerPoints.map((op, index) => (
           <OfferPoint
-            key={op.mainText}
-            number={index + 1}
-            mainText={op.mainText}
-            secondaryText={op.secondaryText}
-            tertiaryText={op.tertiaryText}
+            key={op.paragraphs[0]}
+            title={op.title}
+            paragraphs={op.paragraphs}
           />
         ))}
       </ul>
