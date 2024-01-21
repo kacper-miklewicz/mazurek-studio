@@ -1,5 +1,5 @@
-export const email = "example@example.com";
-export const phoneNumber = "123456789";
+export const email = "mazurek.studio@gmail.com";
+export const phoneNumber = "605553246";
 
 export const EMAILJS_DATA = {
   SERVICE_ID: process.env.REACT_APP_EMAILJS_SERVICE_ID,
