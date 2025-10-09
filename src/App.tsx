@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -28,7 +27,12 @@ const App = () => {
         setIsPending(true);
         setError(null);
 
-        const querySnapshot = await getDocs(collection(db, "projects"));
+        const projectsCollection = collection(db, "projects");
+        const projectsQuery = query(
+          projectsCollection,
+          orderBy("order", "asc")
+        );
+        const querySnapshot = await getDocs(projectsQuery);
         const projects: Project[] = [];
 
         querySnapshot.forEach(doc => {
